@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -36,6 +37,7 @@ public class Ship : MonoBehaviour
         var p = other.gameObject.GetComponent<Part>();
         if (p.isUsed)
             return;
+
         for (var i = 0; i < parts.Length; i++)
         {
             if (!parts[i].isDropped) continue;
