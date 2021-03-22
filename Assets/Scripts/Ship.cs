@@ -6,6 +6,7 @@ public class Ship : MonoBehaviour
     public Part[] parts;
     private Vector3[] positions;
     public int replacementTime = 5;
+    public float speed = 1;
     public Transform body;
     public bool sailing = false;
     private Quaternion startRot;
@@ -25,7 +26,8 @@ public class Ship : MonoBehaviour
     {
         if (sailing)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime);
+            transform.Translate(Vector3.forward * (Time.deltaTime * speed));
+            Ocean.instance.RefreshLakes(transform.position);
         }
     }
     
