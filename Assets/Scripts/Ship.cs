@@ -10,6 +10,7 @@ public class Ship : MonoBehaviour
     public float speed = 1;
     public Transform body;
     public bool sailing = false;
+    public float maxAngle = 45;
     private Quaternion startRot;
 
     private void Start()
@@ -59,7 +60,7 @@ public class Ship : MonoBehaviour
 
     public void SetRotation(float rot)
     {
-        var r = (0.5f - rot) * 45;
+        var r = (0.5f - rot) * maxAngle;
         transform.rotation = startRot * Quaternion.Euler(0, r, 0);
     }
 
